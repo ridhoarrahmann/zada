@@ -1,0 +1,92 @@
+body{
+   
+}
+.header-container{
+    
+    width: 100%;
+    height: 700px;
+    top: 0;
+    
+}
+.header-container img{
+   width: 100%;
+   height: 700px;
+   object-fit: cover;
+}
+.about-container{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.about-container h1{
+    text-align: center;
+    color: #FFD800;
+    font-size: 40px;
+}
+
+.about-container .col1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+.navbar{
+    z-index: 999;
+}
+.about-container .col2{
+    display: flex;
+    align-items: center;
+}
+.about-container .row{
+    margin-top: 40px;
+}
+.about-container .row .col2 p{
+    margin-top: 30px;
+}
+.about-container p{
+    color: #FFD800;
+    font-size: 23px;
+    text-align: center;
+}
+.about-container img{
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+}
+.blog-preview span p{
+    color: white;
+}
+
+main span{
+    background-color: rgb(77, 63, 63);
+    z-index: -1;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+.keunggulan p{
+    color: #FFD800;
+}
+.hubungi-kami h1{
+    margin-bottom: 130px;
+}
+.floating {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.fab-icon {
+    margin-top: 16px;
+}
