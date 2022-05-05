@@ -69,9 +69,7 @@ main span{
 .keunggulan p{
     color: #FFD800;
 }
-.hubungi-kami h1{
-    margin-bottom: 130px;
-}
+
 .floating {
     position: fixed;
     width: 60px;
@@ -79,7 +77,7 @@ main span{
     bottom: 40px;
     right: 40px;
     background-color: #25d366;
-    color: #fff;
+    color: #fff;    
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
@@ -89,4 +87,32 @@ main span{
 
 .fab-icon {
     margin-top: 16px;
+}
+.contact-container{
+    background-color: rgb(17, 17, 17);
+    height: 400px;
+    width: 100%;
+    padding: 20px 40px;
+    margin: 0;
+}
+.contact-container .row{
+    margin: 0;
+}
+.contact-container h3{
+    text-align: center;
+    color: white;
+
+}
+.contact-container hr{
+    border: 1px solid white;
+}
+.contact-container p{
+    color: white;
+}
+.contact-container .contact-item{
+    padding: 10px;
+}
+.header-content h1{
+    padding: 0;
+    margin: 0;
 }

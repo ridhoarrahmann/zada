@@ -54,11 +54,11 @@
             <!-- Header-->
             <section id="home">
                 <div class="container px-5 header-content">
-                    <div class="row gx-3 align-items-center justify-content-center">
+                    <div class="row align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
-                                <h4 class="display-7 fw-bolder text-white mb-3">Pick The Best Clothes</h4>
-                                <h1 class="display-4 fw-bolder text-white me-sm-3">It's Time For Shopping</h1>
+                                <h4 class="display-7 fw-bolder text-white">Pick The Best Clothes</h4>
+                                <h1 class="display-4 fw-bolder text-white me-sm-3"><?= $jumbotron_content['content']?></h1>
                                 <p class="lead fw-normal text-white-50 mb-6"></p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                     <a class="btn btn-secondary btn-lg px-7 me-sm-3" href="https://www.instagram.com/batikbumien/">Tentang</a>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="<?= base_url('assets/img/') ?>Mbatik-removebg-preview.png" width="250px" height="250px"></div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img  src="<?= base_url('assets/img/') ?>Mbatik-removebg-preview.png" width="250px" height="250px"></div>
                     </div>
                 </div>
         </div>
@@ -158,7 +158,8 @@
                             <div class="col-md-12 col4">
                                 <div class="row gx-5 justify-content-center">
                                     <div class="text-center">
-                                        <p> M Batik memberikan baju dengan motif batik dengan bahan yang berkualitas. M Batik dapat didapatkan melalui online shop sehingga anda dapat order produk dari M Batik dengan praktis. Dengan harga yang terjangkau anda bisa mendapatkan baju batik dengan kualitas yang bagus.</p>
+                                        <!-- <p> M Batik memberikan baju dengan motif batik dengan bahan yang berkualitas. M Batik dapat didapatkan melalui online shop sehingga anda dapat order produk dari M Batik dengan praktis. Dengan harga yang terjangkau anda bisa mendapatkan baju batik dengan kualitas yang bagus.</p> -->
+                                        <p><?= $keunggulan_content['content'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -231,29 +232,49 @@
     <a href="https://wa.me/+62895379132634" class="floating" target="_blank">
         <i class="fab fa-whatsapp fab-icon"></i>
     </a>
-    <section id="contact"></section>
-        <div class="container px-5 hubungi-kami">
-            <!-- Contact form-->
-            <div class="about-container">
-                <div class="text-center mb-5">
-                    <h1 class="fw-bolder">
-                        <hr>HUBUNGI KAMI
-                        <hr>
-                    </h1>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6">
-                    </div>
-                </div>
-            </div>
+    <!-- contact -->
+    <!-- <section id="contact-container"></section>
+        <div class="container  hubungi-kami contact">
+          
+            <h1>contact</h1>
+            
         </div>
         <br>
         <span>
 
         </span>
-        <!-- Contact cards-->
+      Contact cards-->
 
-        </section>
+
+
+        <!-- </section> --> 
+
+        <!-- contact -->
+        <div class="contact-container">
+               <div class="row">
+                   <div class="col-md-4 contact-item">
+                   <h3>Lokasi</h3>
+                   <hr>
+                   <p>Jl.Nitikan No 255 Yogyakarta Indonesia</p>
+                   </div>
+                   <div class="col-md-4 contact-item">
+                   <h3>Marketing</h3>
+                   <hr>
+                   <p>email@gmail.com</p>
+                   
+                   <p>08761237123131</p>
+              
+                   
+                   </div>
+                   <div class="col-md-4 contact-item">
+                    <h3>Sosial Media</h3>
+                    <hr>
+                   
+                    <p>Instagram@gmail.com</p>
+                    <p>Twitter@gmail.com</p>
+                   </div>
+               </div>
+        </div>
 
         <!-- Footer-->
         <footer>

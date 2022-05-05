@@ -21,6 +21,11 @@ class Main extends CI_Controller
      */
     public function index()
     {
-        $this->load->view('index');
+        $user = $this->db->get('admin')->result_array();
+        
+        
+        $data['jumbotron_content']=$this->db->get_where('content',['name'=>"jumbotron"])->row_array();
+        $data['keunggulan_content']=$this->db->get_where('content',['name'=>"keunggulan"])->row_array();
+        $this->load->view('index',$data);
     }
 }

@@ -30,6 +30,56 @@ class Admin extends CI_Controller {
         $this->load->view('layout/admin/footer');
 
     }
+	public function change_jumbotron(){
+		$data['user'] = $this->db->get_where('admin',['username'=>$this->session->userdata('username')])->row_array();
+		$this->load->view('layout/admin/header',$data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar',$data);
+		$this->load->view('jumbotron_edit');	
+		$this->load->view('layout/admin/footer');
+	}
+	public function changeJumbotron(){
+		$jumbotron_update=$this->input->post('jumbotron-content');
+		$update_data=[
+			'content'=>$jumbotron_update, 
+		];
+		$data['user'] = $this->db->get_where('admin',['username'=>$this->session->userdata('username')])->row_array();
+		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
+
+		$this->db->where("name",'jumbotron');
+		$this->db->update('content',$update_data);
+		$this->load->view('layout/admin/header',$data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar',$data);
+		$this->load->view('jumbotron_edit');	
+		$this->load->view('layout/admin/footer');
+	}
+	public function change_keunggulan(){
+		$data['user'] = $this->db->get_where('admin',['username'=>$this->session->userdata('username')])->row_array();
+		$this->load->view('layout/admin/header',$data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar',$data);
+		$this->load->view('keunggulan_edit');	
+		$this->load->view('layout/admin/footer');
+	}
+	public function changeKeunggulan(){
+		$keunggulan_update=$this->input->post('keunggulan-content');
+		$update_data=[
+			'content'=>$keunggulan_update, 
+		];
+		$data['user'] = $this->db->get_where('admin',['username'=>$this->session->userdata('username')])->row_array();
+		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
+
+		$this->db->where("name",'keunggulan');
+		$this->db->update('content',$update_data);
+		$this->load->view('layout/admin/header',$data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar',$data);
+		$this->load->view('keunggulan_edit');	
+		$this->load->view('layout/admin/footer');
+	}
+
+	
     
 
 

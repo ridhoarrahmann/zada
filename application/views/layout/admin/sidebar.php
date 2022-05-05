@@ -8,29 +8,15 @@
             </div>
             <div class="slider-body px-1">
                 <nav class="nav flex-column">
-                    <a class="nav-link px-3 active" href="#">
+                    <a class="nav-link px-3 active" href="<?= base_url('/admin')?>">
                         <i class="fa fa-home fa-lg box-icon" aria-hidden="true"></i>Home
                     </a>
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Profile
+                    <a class="nav-link px-3" href="<?= base_url('/admin/change_jumbotron')?>">
+                        <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Jumbotron
                     </a>
                     <hr class="soft my-1 bg-white">
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-dropbox fa-lg box-icon" aria-hidden="true"></i>Product
-                    </a>
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-calendar fa-lg box-icon" aria-hidden="true"></i>Pleanning
-                    </a>
-                    <hr class="soft my-1 bg-white">
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-bell fa-lg box-icon" aria-hidden="true"></i>Notifikasi
-                    </a>
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-envelope fa-lg box-icon" aria-hidden="true"></i>Message
-                    </a>
-                    <hr class="soft my-1 bg-white">
-                    <a class="nav-link px-3" href="#">
-                        <i class="fa fa-id-card fa-lg box-icon" aria-hidden="true"></i>License
+                    <a class="nav-link px-3" href="<?= base_url('/admin/change_keunggulan')?>">
+                        <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Keunggulan
                     </a>
                     <hr class="soft my-1 bg-white">
                     <a class="nav-link px-3" href="#">
