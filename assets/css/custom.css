@@ -100,14 +100,22 @@ main span{
 }
 .contact-container h3{
     text-align: center;
-    color: white;
-
+    color: #fff;
+}
+.contact-container .contact-item a p{
+    color: #FFD800;
 }
 .contact-container hr{
     border: 1px solid white;
 }
 .contact-container p{
-    color: white;
+    color: #FFD800;
+}
+.contact-container .contact-item a {
+    position: relative;
+    color: #FFD800;
+    font-size: 1.5em;
+    margin-right: 2px;
 }
 .contact-container .contact-item{
     padding: 10px;

@@ -78,6 +78,42 @@ class Admin extends CI_Controller {
 		$this->load->view('keunggulan_edit');	
 		$this->load->view('layout/admin/footer');
 	}
+	public function changeGallery(){
+		$data['user'] = $this->db->get_where('admin',['username'=>$this->session->userdata('username')])->row_array();
+		$this->load->view('layout/admin/header',$data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar',$data);
+		$this->load->view('gallery_edit');	
+		$this->load->view('layout/admin/footer');
+
+		
+	}
+	public function uploadGallery(){
+		$config['upload_path']          = base_url('/assets/img/');
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['max_size']             = 0;
+    $config['max_width']            = 0;
+    $config['max_height']           = 0;
+    $this->load->library('upload', $config);
+    // if (!$this->upload->do_upload('userfile')){
+    //         $error = array('error' => $this->upload->display_errors());
+    //         $this->load->view('upload', $error);
+    // }else{
+        $_data = array('upload_data' => $this->upload->data());
+         $data = array(
+            // 'title'=> $this->input->post('title'),
+            'image' => $_data['upload_data']['file_name']
+            );
+        $query = $this->db->insert('upload',$data);
+        if($query){
+            echo 'berhasil di upload';
+            redirect('upload_gambar');
+        }else{
+            echo 'gagal upload';
+        }
+    // }
+	}
+
 
 	
     
