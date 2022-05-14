@@ -108,6 +108,10 @@ class Admin extends CI_Controller
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('footer_edit',$data);
 		$this->load->view('layout/admin/footer');
+	
+		// $this->input->post('tentang_kami-content');
+	}
+	public function change_footer(){
 		$footer_update = [
 			'alamat'=>$this->input->post('alamat'),
 			'email'=>$this->input->post('email'),
@@ -115,6 +119,25 @@ class Admin extends CI_Controller
 		];
 		$this->db->where('id',1);
 		$this->db->update('footer',$footer_update);
-		// $this->input->post('tentang_kami-content');
+		redirect('admin/changeFooter');
+	}
+
+	public function topProduk(){
+		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['produk']=$this->db->get('top_produk')->result_array();
+		$this->load->view('layout/admin/header', $data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar', $data);
+		$this->load->view('admin_top_produk',$data);
+		$this->load->view('layout/admin/footer');
+	}
+	public function changeTopProduk($id){
+		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['produk']=$this->db->get_where('top_produk',['id'=>$id])->row_array();
+		$this->load->view('layout/admin/header', $data);
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/navbar', $data);
+		$this->load->view('top_produk_edit',$data);
+		$this->load->view('layout/admin/footer');
 	}
 }

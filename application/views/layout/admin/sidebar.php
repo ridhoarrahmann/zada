@@ -19,8 +19,16 @@
                 <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Keunggulan
             </a>
             <hr class="soft my-1 bg-white">
-            <a class="nav-link px-3" href="<?= base_url('/admin/change_keunggulan') ?>">
+            <a class="nav-link px-3" href="<?= base_url('/admin/topProduk') ?>">
+                <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Top Produk
+            </a>
+            <hr class="soft my-1 bg-white">
+            <a class="nav-link px-3" href="<?= base_url('/admin/changeTentangKami') ?>">
                 <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Tentang Kami
+            </a>
+            <hr class="soft my-1 bg-white">
+            <a class="nav-link px-3" href="<?= base_url('/admin/changeFooter') ?>">
+                <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Footer
             </a>
             <hr class="soft my-1 bg-white">
             <a class="nav-link px-3" href="#">

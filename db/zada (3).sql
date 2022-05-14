@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2022 at 02:41 PM
+-- Generation Time: May 14, 2022 at 08:38 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -81,7 +81,7 @@ CREATE TABLE `footer` (
 --
 
 INSERT INTO `footer` (`id`, `alamat`, `email`, `whatsapp`) VALUES
-(1, '', '', '');
+(1, 'ad', 'asd', 'asd');
 
 -- --------------------------------------------------------
 
@@ -122,6 +122,27 @@ CREATE TABLE `gallery` (
 INSERT INTO `gallery` (`id`, `image`) VALUES
 (1, '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `top_produk`
+--
+
+CREATE TABLE `top_produk` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `top_produk`
+--
+
+INSERT INTO `top_produk` (`id`, `title`, `description`) VALUES
+(1, 'produk1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione error ullam iure doloribus fugit voluptates rem, vel minima, sed quo quas, reprehenderit nihil fuga impedit esse minus! Non, molestias?'),
+(2, 'produk2', 'loremmmmm'),
+(3, 'produk3', 'loremmmmmmmm ipsumm');
+
 --
 -- Indexes for dumped tables
 --
@@ -157,6 +178,12 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `top_produk`
+--
+ALTER TABLE `top_produk`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -189,6 +216,12 @@ ALTER TABLE `footer_backup`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `top_produk`
+--
+ALTER TABLE `top_produk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

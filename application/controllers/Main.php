@@ -31,6 +31,7 @@ class Main extends CI_Controller
         // $data['footer_email'] = $this->db->get_where('footer', ['name' => 'email'])->row_array();
         // $data['footer_whatsapp'] = $this->db->get_where('footer', ['name' => "whatsapp"])->row_array();
         $data['footer']=$this->db->get('footer')->row_array();
+        $data['top_produk']=$this->db->get('top_produk')->result_array();
         
         
 
