@@ -5,9 +5,9 @@
                 <form action="<?= base_url('/admin/changeTentangKami') ?>" method="post">
                     <label for="form-tentang_kami-content"> Change Tentang Kami</label>
 
-                    <textarea name="tentang_kami-content" id="form-tentang_kami-content" cols="30" rows="10"></textarea>
+                    <textarea name="tentang_kami-content" class ="form form-control"id="form-tentang_kami-content" cols="30" rows="10"></textarea>
                     <br>
-                    <button type="submit">submit</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
                 </form>
 
             </div>

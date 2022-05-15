@@ -11,7 +11,7 @@
                     <label for="email"> Change email</label>
                     <textarea class="form-control" name="email" id="email" cols="10" rows="5"  ><?= $footer['email']?></textarea>
                     <label for="whatsapp"> Change whatsapp</label>
-                    <textarea class="form-control" name="whatsapp" id="whatsapp" cols="10" rows="5" placeholder="WA" ><?= $footer['email']?></textarea>
+                    <textarea class="form-control" name="whatsapp" id="whatsapp" cols="10" rows="5" placeholder="WA" ><?= $footer['whatsapp']?></textarea>
                     <br>
                     <button type="submit" class="btn-primary">submit</button>
                 </form>

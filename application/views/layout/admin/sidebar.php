@@ -2,8 +2,8 @@
     <div class="slider-head">
         <div class="d-block pt-4 pb-3 px-3">
             <img src="./images/user/user.png" alt="user" class="slider-img-user mb-2">
-            <p class="fw-bold mb-0 lh-1 text-white">YourName</p>
-            <small class="text-white">YourAccount@gmail.com</small>
+            <p class="fw-bold mb-0 lh-1 text-white"><?= $user['username'] ?></p>
+            <!-- <small class="text-white">YourAccount@gmail.com</small> -->
         </div>
     </div>
     <div class="slider-body px-1">
@@ -23,6 +23,10 @@
                 <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Top Produk
             </a>
             <hr class="soft my-1 bg-white">
+            <a class="nav-link px-3" href="<?= base_url('/admin/gallery') ?>">
+                <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Gallery
+            </a>
+            <hr class="soft my-1 bg-white">
             <a class="nav-link px-3" href="<?= base_url('/admin/changeTentangKami') ?>">
                 <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Tentang Kami
             </a>
@@ -31,9 +35,10 @@
                 <i class="fa fa-user fa-lg box-icon" aria-hidden="true"></i>Change Footer
             </a>
             <hr class="soft my-1 bg-white">
-            <a class="nav-link px-3" href="#">
+            <a class="nav-link px-3" href="<?= base_url('auth/logout') ?>">
                 <i class="fa fa-sign-out fa-lg box-icon" aria-hidden="true"></i>LogOut
             </a>
+            
         </nav>
     </div>
 </div>

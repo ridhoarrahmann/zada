@@ -2,7 +2,8 @@
     <div class="container-fluid">
         <div class="row g-2 mb-3">
             <div class="col-12">
-                <form action="<?= base_url('/admin/change_footer') ?>" method="post">
+              
+                <?php echo form_open_multipart('admin/update_top_produk/'.$produk['id']);?>
                     <label for="header"> Change Header</label>
                     
                     
@@ -13,14 +14,14 @@
                     <br>
                     <br>
                     <label for="image"> Change Image</label>
-                    <input type="file" name="image" id="image">
+                    <input type="file" name="image" id="image" value="<?= $produk['img']?>">
                     <br>
                     <br>
                     <br>
                     <button type="submit" class="btn-primary">submit</button>
-                </form>
-
-            </div>
+               
+                
+                           </div>
         </div>
     </div>
 </div>

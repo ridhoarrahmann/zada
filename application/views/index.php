@@ -59,8 +59,8 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start" data-aos="zoom-in-down">
-                                <h4 class="display-7 fw-bolder text-white">Pick The Best Clothes</h4>
-                                <h1 class="display-4 fw-bolder text-white me-sm-3"><?= $jumbotron_content['content'] ?>
+                                <h4 class="display-7 fw-bolder text-white"><?= $jumbotron['jumbotron_top'] ?></h4>
+                                <h1 class="display-4 fw-bolder text-white me-sm-3"><?= $jumbotron['jumbotron_bottom'] ?>
                                 </h1>
                                 <p class="lead fw-normal text-white-50 mb-6"></p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
@@ -96,13 +96,12 @@
                         <div class="col-lg-4 mb-5">
                             </script>
                             <div class=" card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?= base_url('assets/') ?>img/batik1.jpeg" alt="..." />
+                                <img class="card-img-top" src="<?= base_url('assets/img/').$top_produk1['img'] ?>" alt="..." />
                                 <div class="card-body p-4">
                                     <a class="text-decoration-none link-dark stretched-link" href="#!">
-                                        <h5 class="card-title mb-3">Blog post title</h5>
+                                        <h5 class="card-title mb-3"><?= $top_produk1['title'] ?></h5>
                                     </a>
-                                    <p class="card-text mb-0">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.</p>
+                                    <p class="card-text mb-0"><?= $top_produk1['description'] ?></p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
@@ -116,14 +115,12 @@
                         </div>
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?= base_url('assets/') ?>img/batik2.jpeg" alt="..." />
+                                <img class="card-img-top" src="<?= base_url('assets/img/').$top_produk2['img'] ?>" alt="..." />
                                 <div class="card-body p-4">
                                     <a class="text-decoration-none link-dark stretched-link" href="#!">
-                                        <h5 class="card-title mb-3">Another blog post title</h5>
+                                        <h5 class="card-title mb-3"><?= $top_produk2['title'] ?></h5>
                                     </a>
-                                    <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive
-                                        height of each card. Some quick example text to build on the card title and make
-                                        up the bulk of the card's content.</p>
+                                    <p class="card-text mb-0"><?= $top_produk2['description'] ?></p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
@@ -137,16 +134,12 @@
                         </div>
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?= base_url('assets/') ?>img/batik3.jpeg" alt="..." />
+                                <img class="card-img-top" src="<?= base_url('assets/img/').$top_produk3['img'] ?>" alt="..." />
                                 <div class="card-body p-4">
                                     <a class="text-decoration-none link-dark stretched-link" href="#!">
-                                        <h5 class="card-title mb-3">BAJU BATIK MOTIF SIDO ASIH</h5>
+                                        <h5 class="card-title mb-3"><?= $top_produk3['title'] ?></h5>
                                     </a>
-                                    <p class="card-text mb-0">Batik Motif Sidoasih yang berasal dari Yogyakarta motifnya
-                                        berbentuk pola semen.Pola semen yang berasal dari kata semi, selalu bermuatan
-                                        gambar tumbuhan atau gunung, tempat berseminya tanaman. Semen Sidoasih dipakai
-                                        pada upacara pernikahan, dengan harapan pengantin akan membangun hidupnya dengan
-                                        kebahagiaan penuh kasih.</p>
+                                    <p class="card-text mb-0"><?= $top_produk3['description'] ?></p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
@@ -170,7 +163,7 @@
                             <div class="col-md-12 col4">
                                 <div class="row gx-5 justify-content-center">
                                     <div class="text-center">
-                                        <p><?= $keunggulan_content['content'] ?></p>
+                                        <p><?= $keunggulan['content'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -188,30 +181,16 @@
                                 <p class="lead fw-normal text-muted mb-0">Company portfolio</p>
                             </div>
                             <div class="row gx-5">
-                                <div class="col-lg-6">
+                            
+                            <?php foreach($gallery as $glr ): ?>
+                            <div class="col-lg-6">
                                     <div class="position-relative mb-5" data-aos="zoom-in-down">
-                                        <img class="img-fluid rounded-3 mb-3" src="" alt="..." />
+                                        <img class="img-fluid rounded-3 mb-3" src="<?= base_url('assets/img/').$glr->img;?>" alt="..." />
                                         <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="position-relative mb-5" data-aos="zoom-in-down">
-                                        <img class="img-fluid rounded-3 mb-3" src="" alt="..." />
-                                        <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="position-relative mb-5 mb-lg-0" data-aos="zoom-in-down">
-                                        <img class="img-fluid rounded-3 mb-3" src="" alt="..." />
-                                        <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="position-relative" data-aos="zoom-in-down">
-                                        <img class="img-fluid rounded-3 mb-3" src="" alt="..." />
-                                        <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
-                                    </div>
-                                </div>
+                            <?php endforeach   ?>
+                                
                             </div>
                         </div>
                     </section>

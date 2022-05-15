@@ -25,7 +25,7 @@ class Admin extends CI_Controller
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('admin_dashboard');
 		$this->load->view('layout/admin/footer');
@@ -33,36 +33,43 @@ class Admin extends CI_Controller
 	public function change_jumbotron()
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['jumbotron']=$this->db->get('jumbotron')->row_array();
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('jumbotron_edit');
 		$this->load->view('layout/admin/footer');
 	}
 	public function changeJumbotron()
 	{
-		$jumbotron_update = $this->input->post('jumbotron-content');
+		$jumbotron_top = $this->input->post('jumbotron-top');
+		$jumbotron_bottom = $this->input->post('jumbotron-bottom');
 		$update_data = [
-			'content' => $jumbotron_update,
+			
+			'jumbotron_top' => $jumbotron_top,
+			'jumbotron_bottom'=>$jumbotron_bottom
 		];
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
 
 		$this->db->where("name", 'jumbotron');
-		$this->db->update('content', $update_data);
-		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
-		$this->load->view('layout/admin/navbar', $data);
-		$this->load->view('jumbotron_edit');
-		$this->load->view('layout/admin/footer');
+		$this->db->update('jumbotron',$update_data);
+		// $this->load->view('layout/admin/header', $data);
+		// $this->load->view('layout/admin/sidebar');
+		// $this->load->view('layout/admin/navbar', $data);
+		// $this->load->view('jumbotron_edit');
+		// $this->load->view('layout/admin/footer');
+		redirect('admin/change_jumbotron');
 	}
 	public function change_keunggulan()
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['keunggulan']=$this->db->get('keunggulan')->row_array();
+		
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
-		$this->load->view('keunggulan_edit');
+		$this->load->view('keunggulan_edit',$data);
 		$this->load->view('layout/admin/footer');
 	}
 	public function changeKeunggulan()
@@ -75,9 +82,9 @@ class Admin extends CI_Controller
 		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
 
 		$this->db->where("name", 'keunggulan');
-		$this->db->update('content', $update_data);
+		$this->db->update('keunggulan', $update_data);
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('keunggulan_edit');
 		$this->load->view('layout/admin/footer');
@@ -94,7 +101,7 @@ class Admin extends CI_Controller
 		$this->db->where("name", 'tentang_kami');
 		$this->db->update('content', $update_data);
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('tentang_kami_edit');
 		$this->load->view('layout/admin/footer');
@@ -102,9 +109,9 @@ class Admin extends CI_Controller
 	public function changeFooter()
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
-		$data['footer']=$this->db->get('footer')->row_array();
+		$data['top_produk']=$this->db->get('top_produk')->row_array();
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('footer_edit',$data);
 		$this->load->view('layout/admin/footer');
@@ -126,7 +133,7 @@ class Admin extends CI_Controller
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		$data['produk']=$this->db->get('top_produk')->result_array();
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('admin_top_produk',$data);
 		$this->load->view('layout/admin/footer');
@@ -134,10 +141,166 @@ class Admin extends CI_Controller
 	public function changeTopProduk($id){
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		$data['produk']=$this->db->get_where('top_produk',['id'=>$id])->row_array();
+		
+		
+
+		
 		$this->load->view('layout/admin/header', $data);
-		$this->load->view('layout/admin/sidebar');
+		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('top_produk_edit',$data);
 		$this->load->view('layout/admin/footer');
+		
+		
 	}
+	public function update_top_produk($id){
+		
+		
+		// $this->db->where('id',$id);
+		// $this->db->update('top_produk',$update);
+
+
+		$upload_image=$_FILES['image']['name'];
+
+		
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('image'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+			$update=[
+			
+					'title'=>$this->input->post('header'),
+					'description'=>$this->input->post('description'),
+					'img'=>$image
+				];	
+			$this->db->where('id',$id);
+			$this->db->update('top_produk',$update);	
+
+		 }
+		 else
+		 {
+			$update=[
+			
+				'title'=>$this->input->post('header'),
+				'description'=>$this->input->post('description'),
+				
+			];	
+		$this->db->where('id',$id);
+		$this->db->update('top_produk',$update);
+		 }
+		
+	}
+	public function edit_admin_profile(){
+		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		
+		$this->load->view('layout/admin/header', $data);
+		$this->load->view('layout/admin/sidebar',$data);
+		$this->load->view('layout/admin/navbar', $data);
+		$this->load->view('admin_edit',$data);
+		$this->load->view('layout/admin/footer');
+	}
+	public function editadmin(){
+		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$update=[
+			'username'=>$this->input->post('username')
+		];
+		$this->db->where('username',$this->session->userdata('username'));
+		$this->db>update('user',$update);
+		$this->session->set_userdata('email',);
+		
+	}
+	public function doUpload(){
+		$upload_image=$_FILES['image']['name'];
+
+		
+		$config['upload_path']          = './gambar/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('image'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+				echo 'succes';
+		 }
+		 else
+		 {
+				// $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				echo'error';
+				//  $this->load->view('upload_success', $data);
+		 }
+		}
+		public function gallery(){
+			$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['gallery']=$this->db->get('gallery')->result_array();
+		$this->load->view('layout/admin/header', $data);
+		$this->load->view('layout/admin/sidebar',$data);
+		$this->load->view('layout/admin/navbar', $data);
+		$this->load->view('admin_gallery',$data);
+		$this->load->view('layout/admin/footer');
+		
+		}
+		public function galleryForm($name){
+		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['gallery']=$this->db->get_where('gallery',['name'=> $name])->row_array();
+		$this->load->view('layout/admin/header', $data);
+		$this->load->view('layout/admin/sidebar',$data);
+		$this->load->view('layout/admin/navbar', $data);
+		$this->load->view('gallery_edit',$data);
+		$this->load->view('layout/admin/footer');
+		
+		}
+		public function update_gallery($name){
+			$upload_image=$_FILES['image']['name'];
+
+		
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('image'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+			$update=[
+			
+					'name'=>$this->input->post('name'),
+					
+					'img'=>$image
+				];	
+			$this->db->where('name',$name);
+			$this->db->update('gallery',$update);	
+			redirect('admin/gallery');
+		 }
+		 else
+		 {
+			$update=[
+			
+				'name'=>$this->input->post('name'),
+				
+				
+			];	
+		$this->db->where('name',$name);
+		$this->db->update('gallery',$gallery);
+		redirect('admin/gallery');
+		 }
+		
+		}
 }

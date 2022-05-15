@@ -24,16 +24,22 @@ class Main extends CI_Controller
         $user = $this->db->get('admin')->result_array();
 
 
-        $data['jumbotron_content'] = $this->db->get_where('content', ['name' => "jumbotron"])->row_array();
-        $data['keunggulan_content'] = $this->db->get_where('content', ['name' => "keunggulan"])->row_array();
+        $data['jumbotron'] = $this->db->get('jumbotron')->row_array();
+       
         $data['tentangKami_content'] = $this->db->get_where('content', ['name' => "tentang_kami"])->row_array();
         // $data['footer_alamat'] = $this->db->get_where('footer', ['name' => "alamat"])->row_array();
         // $data['footer_email'] = $this->db->get_where('footer', ['name' => 'email'])->row_array();
         // $data['footer_whatsapp'] = $this->db->get_where('footer', ['name' => "whatsapp"])->row_array();
+       
         $data['footer']=$this->db->get('footer')->row_array();
         $data['top_produk']=$this->db->get('top_produk')->result_array();
-        
-        
+        // data keunggulan
+        $data['top_produk1']=$this->db->get_where('top_produk',['id'=>1])->row_array();
+        $data['top_produk2']=$this->db->get_where('top_produk',['id'=>2])->row_array();
+        $data['top_produk3']=$this->db->get_where('top_produk',['id'=>3])->row_array();
+        $data['keunggulan']=$this->db->get('keunggulan')->row_array();
+        $data['gallery']=$this->db->get('gallery')->result();
+
 
       $this->load->view('index', $data);
     }

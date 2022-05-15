@@ -14,12 +14,12 @@
     </tr>
   </thead>
   <tbody>
-      <?php foreach ($produk as $pd ) :?>
+      <?php foreach ($gallery as $pd ) :?>
     <tr>
       <th scope="row">1</th>
-      <td><?= $pd['title']; ?></td>
-      <td><?= $pd['description']; ?></td>
-      <td><a href="<?= base_url('admin/changeTopProduk/').$pd['id'] ?>"><button class="btn btn-primary">edit</button></a></td>
+      <td><?= $pd['name']; ?></td>
+      <td><?= $pd['img']; ?></td>
+      <td><a href="<?= base_url('admin/galleryForm/').$pd['name'] ?>"><button class="btn btn-primary">edit</button></a></td>
       <td><button class="btn btn-danger">hapus</button></td>
     </tr>
     <?php endforeach?>

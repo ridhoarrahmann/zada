@@ -8,7 +8,7 @@
                 <ul class="nav ms-auto">
                    
                     <li class="nav-item dropstart">
-                        <a class="nav-link text-dark ps-3 pe-1" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link text-dark ps-3 pe-1" href="<?= base_url('admin/edit_profile/'.$user['username']) ?>" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown">
                             <!-- <img src="./images/user/user.png" alt="user" class="img-user"> -->
                             <p><?= $user['username'] ?></p>

@@ -7,9 +7,9 @@
                            <form action="<?= base_url('/admin/changeKeunggulan')?>" method="post">
                                <label for="form-jumbotron-content"> Change Keunggulan Content</label>
                                
-                              <textarea name="keunggulan-content" id="form-keunggulan-content" cols="30" rows="10"></textarea>
+                              <textarea class="form form-control" name="keunggulan-content" id="form-keunggulan-content" cols="30" rows="10"></textarea>
                             <br>
-                             <button type="submit">submit</button>
+                             <button type="submit" class="btn btn-primary">submit</button>
                             </form>
                             
                         </div>
