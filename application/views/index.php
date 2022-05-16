@@ -28,7 +28,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5" data-aos="zoom-in-down">
-                <img src="<?= base_url('assets/') ?>img/Mbatik-removebg-preview.png" width="120px" height="120px">
+                <img src="<?= base_url('assets/img/'.$logo['logo']) ?>" width="120px" height="120px">
                 <a class="navbar-brand" href="index.html"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" data-aos="zoom-in-down">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center" data-aos="zoom-in-down"><img src="<?= base_url('assets/img/') ?>Mbatik-removebg-preview.png" width="250px" height="250px"></div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center" data-aos="zoom-in-down"><img src="<?= base_url('assets/img/'.$jumbotron['logo']) ?>" width="250px" height="250px"></div>
                     </div>
                 </div>
         </div>

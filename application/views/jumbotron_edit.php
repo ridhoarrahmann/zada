@@ -4,7 +4,8 @@
             <div class="container-fluid">
                 <div class="row g-2 mb-3">
                     <div class="col-12">
-                           <form action="<?= base_url('/admin/changeJumbotron')?>" method="post">
+                           
+                           <?php echo form_open_multipart('admin/changeJumbotron');?>
                            <label for="form-jumbotron-top"> Change jumbotron top</label>
                                
                               <textarea class="form-control" name="jumbotron-top" id="form-jumbotron-top" cols="30" rows="10"><?= $jumbotron['jumbotron_top'] ?></textarea>
@@ -14,7 +15,11 @@
                                
                               <textarea class="form-control" name="jumbotron-bottom" id="form-jumbotron-bottom" cols="30" rows="10"><?= $jumbotron['jumbotron_bottom'] ?></textarea>
                             <br>
-                             <button type="submit">submit</button>
+                            <input type="file" name="jumbotron_logo">
+                            <br>
+                            <br>
+
+                            <button type="submit" class="btn btn-primary">submit</button>
                             </form>
                             
                         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2022 at 08:38 AM
+-- Generation Time: May 16, 2022 at 05:51 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -73,15 +73,16 @@ CREATE TABLE `footer` (
   `id` int(11) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `whatsapp` varchar(255) NOT NULL
+  `whatsapp` varchar(255) NOT NULL,
+  `link_facebook` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `footer`
 --
 
-INSERT INTO `footer` (`id`, `alamat`, `email`, `whatsapp`) VALUES
-(1, 'ad', 'asd', 'asd');
+INSERT INTO `footer` (`id`, `alamat`, `email`, `whatsapp`, `link_facebook`) VALUES
+(1, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -112,15 +113,78 @@ INSERT INTO `footer_backup` (`id`, `name`, `content`) VALUES
 
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gallery`
 --
 
-INSERT INTO `gallery` (`id`, `image`) VALUES
-(1, '');
+INSERT INTO `gallery` (`id`, `name`, `img`) VALUES
+(1, 'gallery1', '3_yaa2.PNG'),
+(2, 'gallery2', '3_yaa.PNG'),
+(3, 'gallery3', '1_yaa5.PNG'),
+(4, 'gallery4', 'kjsbcjks ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jumbotron`
+--
+
+CREATE TABLE `jumbotron` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `jumbotron_top` varchar(255) NOT NULL,
+  `jumbotron_bottom` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jumbotron`
+--
+
+INSERT INTO `jumbotron` (`id`, `name`, `jumbotron_top`, `jumbotron_bottom`, `logo`) VALUES
+(1, 'jumbotron', 'Pick The Best Clothesssss', 'ITS TIME FOR SHOPPING', 'Mbatik-removebg-preview2.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keunggulan`
+--
+
+CREATE TABLE `keunggulan` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keunggulan`
+--
+
+INSERT INTO `keunggulan` (`id`, `name`, `content`) VALUES
+(2, 'keunggulan', 'kkkkkkkkkkkk');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logo`
+--
+
+CREATE TABLE `logo` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `logo`
+--
+
+INSERT INTO `logo` (`id`, `name`, `logo`) VALUES
+(1, 'logo', 'Mbatik-removebg-preview3.png');
 
 -- --------------------------------------------------------
 
@@ -131,17 +195,18 @@ INSERT INTO `gallery` (`id`, `image`) VALUES
 CREATE TABLE `top_produk` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `top_produk`
 --
 
-INSERT INTO `top_produk` (`id`, `title`, `description`) VALUES
-(1, 'produk1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione error ullam iure doloribus fugit voluptates rem, vel minima, sed quo quas, reprehenderit nihil fuga impedit esse minus! Non, molestias?'),
-(2, 'produk2', 'loremmmmm'),
-(3, 'produk3', 'loremmmmmmmm ipsumm');
+INSERT INTO `top_produk` (`id`, `title`, `description`, `img`) VALUES
+(1, '', 'jhguhg', '5_yaa2.PNG'),
+(2, 'produk2', 'loremmmmm', '4_yaa.PNG'),
+(3, 'produk3', 'loremmmmmmmm ipsumm', '4_yaa1.PNG');
 
 --
 -- Indexes for dumped tables
@@ -175,6 +240,24 @@ ALTER TABLE `footer_backup`
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jumbotron`
+--
+ALTER TABLE `jumbotron`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `keunggulan`
+--
+ALTER TABLE `keunggulan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `logo`
+--
+ALTER TABLE `logo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -215,6 +298,24 @@ ALTER TABLE `footer_backup`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `jumbotron`
+--
+ALTER TABLE `jumbotron`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `keunggulan`
+--
+ALTER TABLE `keunggulan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `logo`
+--
+ALTER TABLE `logo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

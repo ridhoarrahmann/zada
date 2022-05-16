@@ -44,16 +44,48 @@ class Admin extends CI_Controller
 	{
 		$jumbotron_top = $this->input->post('jumbotron-top');
 		$jumbotron_bottom = $this->input->post('jumbotron-bottom');
-		$update_data = [
+		
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('jumbotron_logo'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+					
+			$update_data = [
 			
 			'jumbotron_top' => $jumbotron_top,
-			'jumbotron_bottom'=>$jumbotron_bottom
-		];
-		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+			'jumbotron_bottom'=>$jumbotron_bottom,
+			'logo'=>$image
+			];
+			$this->db->where('name','jumbotron');
+			$this->db->update('jumbotron',$update_data);	
+
+		 }
+		 else
+		 {
+			$update_data = [
+			
+				'jumbotron_top' => $jumbotron_top,
+				'jumbotron_bottom'=>$jumbotron_bottom
+				
+				];
+		$this->db->where('name','jumbotron');
+		$this->db->update('jumbotron',$update_data);
+		 }
+		
+
+		// $data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
 
-		$this->db->where("name", 'jumbotron');
-		$this->db->update('jumbotron',$update_data);
+		// $this->db->where("name", 'jumbotron');
+		// $this->db->update('jumbotron',$update_data);
 		// $this->load->view('layout/admin/header', $data);
 		// $this->load->view('layout/admin/sidebar');
 		// $this->load->view('layout/admin/navbar', $data);
@@ -61,6 +93,7 @@ class Admin extends CI_Controller
 		// $this->load->view('layout/admin/footer');
 		redirect('admin/change_jumbotron');
 	}
+
 	public function change_keunggulan()
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
@@ -302,5 +335,40 @@ class Admin extends CI_Controller
 		redirect('admin/gallery');
 		 }
 		
+		}
+		public function change_logo(){
+			$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+			$data['logo']=$this->db->get('logo')->row_array();
+			$this->load->view('layout/admin/header', $data);
+			$this->load->view('layout/admin/sidebar',$data);
+			$this->load->view('layout/admin/navbar', $data);
+			$this->load->view('logo_edit',$data);
+			$this->load->view('layout/admin/footer');
+				
+		}
+		public function update_logo(){
+		
+
+		
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('logo'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+			$update=[
+			
+					'logo'=>$image
+				];	
+			$this->db->where('name','logo');
+			$this->db->update('logo',$update);	
+			redirect('admin/change_logo');
+		 }
 		}
 }
