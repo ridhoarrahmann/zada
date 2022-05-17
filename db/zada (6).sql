@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 05:51 AM
+-- Generation Time: May 17, 2022 at 03:53 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -30,17 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin1', '$2y$10$x58iJgc7BIwzL5ZrHbc/LuUoIUaC4cvOOWBcIVgt8HDYl5BY0Ft7K'),
-(2, 'admin1', '$2y$10$aaCp0uX/LqQJQ/mSZm5uhOnK4sWLu4D4R8DWViRq2qoFrKGystLei'),
-(3, 'admin2', '$2y$10$mos7sXtE.sHLr9SAag5sZejf9kVNxp2kqq3/4vaTCmQqJxHkjaoDq');
+INSERT INTO `admin` (`id`, `username`, `password`, `avatar`) VALUES
+(1, 'admin1', '$2y$10$x58iJgc7BIwzL5ZrHbc/LuUoIUaC4cvOOWBcIVgt8HDYl5BY0Ft7K', ''),
+(2, 'admin1', '$2y$10$aaCp0uX/LqQJQ/mSZm5uhOnK4sWLu4D4R8DWViRq2qoFrKGystLei', 'user.png'),
+(3, 'admin2', '$2y$10$mos7sXtE.sHLr9SAag5sZejf9kVNxp2kqq3/4vaTCmQqJxHkjaoDq', 'user.png'),
+(4, 'admin3', '$2y$10$lvprrtJWvpCRDCeqIFKPcem4lbgDEhyakQw5o6Z30zwqiQ/5JZiom', 'user2.png');
 
 -- --------------------------------------------------------
 
@@ -61,7 +63,7 @@ CREATE TABLE `content` (
 INSERT INTO `content` (`no`, `name`, `content`) VALUES
 (1, 'jumbotron', 'ITS TIME FOR SHOPPING'),
 (2, 'keunggulan', 'M Batik Memberikan Baju Dengan Motif Batik Dengan Bahan Yang Berkualitas . M Batik Dapat Didapatkan Melalui Online Shop Sehingga Anda Dapat Order Produk Dari M Batik Dengan Praktis . Dengan Harga Yang Terjangkau Anda Bisa Mendapatkan Baju Batik Dengan Kualitas.'),
-(3, 'tentang_kami', '');
+(3, 'tentang_kami', 'kami adalah ..');
 
 -- --------------------------------------------------------
 
@@ -74,15 +76,16 @@ CREATE TABLE `footer` (
   `alamat` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `whatsapp` varchar(255) NOT NULL,
-  `link_facebook` varchar(255) NOT NULL
+  `link_facebook` varchar(255) NOT NULL,
+  `link_instagram` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `footer`
 --
 
-INSERT INTO `footer` (`id`, `alamat`, `email`, `whatsapp`, `link_facebook`) VALUES
-(1, '', '', '', '');
+INSERT INTO `footer` (`id`, `alamat`, `email`, `whatsapp`, `link_facebook`, `link_instagram`) VALUES
+(1, 'fnjsoefnfnsfnsfes', '', '', 'dd', 'https://www.instagram.com/batikbumien/');
 
 -- --------------------------------------------------------
 
@@ -122,10 +125,10 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `name`, `img`) VALUES
-(1, 'gallery1', '3_yaa2.PNG'),
-(2, 'gallery2', '3_yaa.PNG'),
-(3, 'gallery3', '1_yaa5.PNG'),
-(4, 'gallery4', 'kjsbcjks ');
+(1, 'gallery1', 'batik11.jpeg'),
+(2, 'gallery2', 'batik21.jpeg'),
+(3, 'gallery3', 'batik31.jpeg'),
+(4, 'gallery4', 'batik311.jpeg');
 
 -- --------------------------------------------------------
 
@@ -146,7 +149,7 @@ CREATE TABLE `jumbotron` (
 --
 
 INSERT INTO `jumbotron` (`id`, `name`, `jumbotron_top`, `jumbotron_bottom`, `logo`) VALUES
-(1, 'jumbotron', 'Pick The Best Clothesssss', 'ITS TIME FOR SHOPPING', 'Mbatik-removebg-preview2.png');
+(1, 'jumbotron', 'Pick The Best Clothesssss', 'ITS TIME FOR SHOPPING', 'Mbatik-removebg-preview4.png');
 
 -- --------------------------------------------------------
 
@@ -184,7 +187,26 @@ CREATE TABLE `logo` (
 --
 
 INSERT INTO `logo` (`id`, `name`, `logo`) VALUES
-(1, 'logo', 'Mbatik-removebg-preview3.png');
+(1, 'logo', 'background.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tentang_kami`
+--
+
+CREATE TABLE `tentang_kami` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tentang_kami`
+--
+
+INSERT INTO `tentang_kami` (`id`, `name`, `content`) VALUES
+(1, 'tentang_kami', 'kamii');
 
 -- --------------------------------------------------------
 
@@ -204,9 +226,9 @@ CREATE TABLE `top_produk` (
 --
 
 INSERT INTO `top_produk` (`id`, `title`, `description`, `img`) VALUES
-(1, '', 'jhguhg', '5_yaa2.PNG'),
-(2, 'produk2', 'loremmmmm', '4_yaa.PNG'),
-(3, 'produk3', 'loremmmmmmmm ipsumm', '4_yaa1.PNG');
+(1, 'asdd', 'jhguhg', 'batik12.jpeg'),
+(2, 'produk2', 'loremmmmm', 'batik22.jpeg'),
+(3, 'produk3', 'loremmmmmmmm ipsumm', 'batik32.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -261,6 +283,12 @@ ALTER TABLE `logo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tentang_kami`
+--
+ALTER TABLE `tentang_kami`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `top_produk`
 --
 ALTER TABLE `top_produk`
@@ -274,7 +302,7 @@ ALTER TABLE `top_produk`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `content`
@@ -316,6 +344,12 @@ ALTER TABLE `keunggulan`
 -- AUTO_INCREMENT for table `logo`
 --
 ALTER TABLE `logo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tentang_kami`
+--
+ALTER TABLE `tentang_kami`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

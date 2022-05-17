@@ -14,13 +14,13 @@
                     <br>
                     <br>
                     <label for="image"> Change Image</label>
-                    <input type="file" name="image" id="image" value="<?= $produk['img']?>">
+                    <input type="file" name="image" id="image" >
                     <br>
                     <br>
                     <br>
                     <button type="submit" class="btn-primary">submit</button>
                
-                
+</form>                
                            </div>
         </div>
     </div>

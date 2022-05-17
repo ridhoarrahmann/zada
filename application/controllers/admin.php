@@ -123,26 +123,34 @@ class Admin extends CI_Controller
 		$this->load->view('layout/admin/footer');
 	}
 	public function changeTentangKami()
-	{
-		$tentang_kami_update = $this->input->post('tentang_kami-content');
-		$update_data = [
-			'content' => $tentang_kami_update,
-		];
-		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
-		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
-
-		$this->db->where("name", 'tentang_kami');
-		$this->db->update('content', $update_data);
+	{   $data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		$data['tentang_kami']=$this->db->get_where('tentang_kami',['name'=>'tentang_kami'])->row_array();
+		
+		
 		$this->load->view('layout/admin/header', $data);
 		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
 		$this->load->view('tentang_kami_edit');
 		$this->load->view('layout/admin/footer');
+			
+	}
+	public function edit_tentang_kami(){
+		$tentang_kami_update = $this->input->post('tentang_kami-content');
+		$update_data = [
+			'content' => $tentang_kami_update,
+		];
+		
+		// $data['transaction_draft'] = $this->db->get_where('transaction_cabang', ['status' => "draft"])->result_array();
+
+		$this->db->where("name", 'tentang_kami');
+		$this->db->update('tentang_kami', $update_data);
+		redirect('admin/changeTentangKami');
 	}
 	public function changeFooter()
 	{
 		$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 		$data['top_produk']=$this->db->get('top_produk')->row_array();
+		$data['footer']=$this->db->get('footer')->row_array();
 		$this->load->view('layout/admin/header', $data);
 		$this->load->view('layout/admin/sidebar',$data);
 		$this->load->view('layout/admin/navbar', $data);
@@ -156,6 +164,8 @@ class Admin extends CI_Controller
 			'alamat'=>$this->input->post('alamat'),
 			'email'=>$this->input->post('email'),
 			'whatsapp'=>$this->input->post('whatsapp'),
+			'link_facebook'=>$this->input->post('link_facebook'),
+			'link_instagram'=>$this->input->post('link_instagram')
 		];
 		$this->db->where('id',1);
 		$this->db->update('footer',$footer_update);
@@ -194,10 +204,10 @@ class Admin extends CI_Controller
 
 
 		$upload_image=$_FILES['image']['name'];
-
+		
 		
 		$config['upload_path']          = './assets/img/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 2048;
                
 
@@ -209,13 +219,14 @@ class Admin extends CI_Controller
 				//  $data = array('upload_data' => $this->upload->data());
 				//  $this->load->view('upload_form', $error);
 			$update=[
-			
+				
 					'title'=>$this->input->post('header'),
 					'description'=>$this->input->post('description'),
 					'img'=>$image
 				];	
 			$this->db->where('id',$id);
-			$this->db->update('top_produk',$update);	
+			$this->db->update('top_produk',$update);
+			redirect('admin/topProduk');	
 
 		 }
 		 else
@@ -228,7 +239,8 @@ class Admin extends CI_Controller
 			];	
 		$this->db->where('id',$id);
 		$this->db->update('top_produk',$update);
-		 }
+		redirect('admin/topProduk');
+	}
 		
 	}
 	public function edit_admin_profile(){
@@ -301,7 +313,7 @@ class Admin extends CI_Controller
 
 		
 		$config['upload_path']          = './assets/img/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 2048;
                
 
@@ -331,7 +343,7 @@ class Admin extends CI_Controller
 				
 			];	
 		$this->db->where('name',$name);
-		$this->db->update('gallery',$gallery);
+		$this->db->update('gallery',$update);
 		redirect('admin/gallery');
 		 }
 		
@@ -370,5 +382,38 @@ class Admin extends CI_Controller
 			$this->db->update('logo',$update);	
 			redirect('admin/change_logo');
 		 }
+		}
+		public function change_avatar(){
+			$data['user'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+			$data['logo']=$this->db->get('logo')->row_array();
+			$user_edit=$this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+			$this->load->view('layout/admin/header', $data);
+			$this->load->view('layout/admin/sidebar',$data);
+			$this->load->view('layout/admin/navbar', $data);
+			$this->load->view('avatar_edit',$data);
+			$this->load->view('layout/admin/footer');			
+			$config['upload_path']          = './assets/img/user/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+               
+
+    	 $this->load->library('upload', $config);
+		 if ( $this->upload->do_upload('avatar'))
+		 {
+			 $image = $this->upload->data('file_name');   
+				//  $error = array('error' => $this->upload->display_errors());
+				//  $data = array('upload_data' => $this->upload->data());
+				//  $this->load->view('upload_form', $error);
+			$update=[
+			
+					'avatar'=>$image
+				];	
+			$this->db->where('username',$user_edit['username']);
+			$this->db->update('admin',$update);	
+			redirect('admin/change_avatar');
+		 }
+		 else{
+			
+		 }		
 		}
 }

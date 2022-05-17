@@ -1,10 +1,15 @@
 <div class="slider" id="sliders">
     <div class="slider-head">
+        
         <div class="d-block pt-4 pb-3 px-3">
-            <img src="./images/user/user.png" alt="user" class="slider-img-user mb-2">
+            
+        <a href="<?= base_url('admin/change_avatar') ?>">
+        <img src="<?= base_url('assets/img/user/'.$user['avatar'])?>" alt="user" class="slider-img-user mb-2">
             <p class="fw-bold mb-0 lh-1 text-white"><?= $user['username'] ?></p>
+</a>
             <!-- <small class="text-white">YourAccount@gmail.com</small> -->
         </div>
+        
     </div>
     <div class="slider-body px-1">
         <nav class="nav flex-column">

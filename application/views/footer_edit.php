@@ -12,7 +12,12 @@
                     <textarea class="form-control" name="email" id="email" cols="10" rows="5"  ><?= $footer['email']?></textarea>
                     <label for="whatsapp"> Change whatsapp</label>
                     <textarea class="form-control" name="whatsapp" id="whatsapp" cols="10" rows="5" placeholder="WA" ><?= $footer['whatsapp']?></textarea>
+                   <label for="facebook">Link Facebook</label>
+                    <input class="form form-control"type="text" name="link_facebook" id="facebook" value="<?= $footer['link_facebook'] ?>">
+                    <label for="ig">Link Instagram</label>
+                    <input class="form form-control"type="text" name="link_instagram" id="ig" value="<?= $footer['link_instagram'] ?>">
                     <br>
+
                     <button type="submit" class="btn-primary">submit</button>
                 </form>
 

@@ -48,7 +48,7 @@ class Auth extends CI_Controller
 					'id'=>$user['id'],
 					'username'=>$user['username'],
 				);
-				$this->session->set_userdata(array('username' => $user['username']));
+				$this->session->set_userdata(array('username' => $user['username'],));
 				echo "sukses";
 				redirect('admin');
 			}
@@ -86,7 +86,7 @@ class Auth extends CI_Controller
            
                     'password'=> password_hash($this->input->post('password1'),PASSWORD_DEFAULT),
                   
-                    
+					'avatar'=>'user.png'
                 ];
                 $this->db->insert('admin', $data);
                 $this->session->set_flashdata('message','<div class="alert alert-primary" role="alert">

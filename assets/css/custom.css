@@ -42,6 +42,8 @@
 .about-container .row .col2 p{
     margin-top: 30px;
 }
+
+
 .about-container p{
     color: #FFD800;
     font-size: 23px;
@@ -86,7 +88,7 @@ main span{
 }
 .contact-container{
     background-color: rgb(17, 17, 17);
-    height: 400px;
+    
     width: 100%;
     padding: 20px 40px;
     margin: 0;
@@ -119,4 +121,8 @@ main span{
 .header-content h1{
     padding: 0;
     margin: 0;
+}
+h1{
+    margin: 0;
+    font-size: 20px;
 }

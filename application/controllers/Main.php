@@ -26,7 +26,7 @@ class Main extends CI_Controller
 
         $data['jumbotron'] = $this->db->get('jumbotron')->row_array();
         $data['logo']= $this->db->get('logo')->row_array();
-        $data['tentangKami_content'] = $this->db->get_where('content', ['name' => "tentang_kami"])->row_array();
+        $data['tentang_kami'] = $this->db->get_where('tentang_kami', ['name' => "tentang_kami"])->row_array();
         // $data['footer_alamat'] = $this->db->get_where('footer', ['name' => "alamat"])->row_array();
         // $data['footer_email'] = $this->db->get_where('footer', ['name' => 'email'])->row_array();
         // $data['footer_whatsapp'] = $this->db->get_where('footer', ['name' => "whatsapp"])->row_array();

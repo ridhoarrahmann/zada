@@ -96,7 +96,7 @@
                         <div class="col-lg-4 mb-5">
                             </script>
                             <div class=" card h-100 shadow border-0">
-                                <img class="card-img-top" src="<?= base_url('assets/img/').$top_produk1['img'] ?>" alt="..." />
+                                <img class="card-img-top" src="<?= base_url('assets/img/'.$top_produk1['img']) ?>" alt="..." />
                                 <div class="card-body p-4">
                                     <a class="text-decoration-none link-dark stretched-link" href="#!">
                                         <h5 class="card-title mb-3"><?= $top_produk1['title'] ?></h5>
@@ -155,10 +155,12 @@
 
                     <!-- About section-->
                     <div class="about-container keunggulan" id="keunggulan" data-aos="zoom-in-down">
-                        <h1>
-                            <hr>KEUNGGULAN
-                            <hr>
+                    <hr>    
+                    <h1>
+                            
+                            KEUNGGULAN
                         </h1>
+                        <hr>
                         <div class="row">
                             <div class="col-md-12 col4">
                                 <div class="row gx-5 justify-content-center">
@@ -205,7 +207,7 @@
                             <div class="col-md-12 col4">
                                 <div class="row gx-5 justify-content-center">
                                     <div class="text-center" data-aos="zoom-in-down">
-                                        <p><?= $tentangKami_content['content'] ?></p>
+                                        <p><?= $tentang_kami['content'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -266,22 +268,25 @@
             <div class="col-md-4 contact-item" data-aos="zoom-in-down">
                 <h3>Sosial Media</h3>
                 <hr>
-                <a href="https://www.facebook.com/bu.mien.73"><img src="<?= base_url('assets/') ?>img/facebook.png" width="100px" height="83px"></a>
+                <!-- <a href="https://www.facebook.com/bu.mien.73"><img src="<?= base_url('assets/') ?>img/facebook.png" width="100px" height="83px"></a> -->
+                <a href="<?= $footer['link_facebook']?>"><img src="<?= base_url('assets/') ?>img/facebook.png" width="100px" height="83px"></a>
                 <a href="https://www.instagram.com/batikbumien/"><img src="<?= base_url('assets/') ?>img/instagram.png" width="100px" height="80px"></a>
 
             </div>
         </div>
     </div>
+    
 
     <!-- Footer-->
     <footer id="contact">
-
-    </footer>
+        
     <center>
         <div class="copyrightText">
             <p>copyright © 2022 M Batik. All Rights Reserved</p>
         </div>
     </center>
+    </footer>
+    
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

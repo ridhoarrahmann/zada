@@ -1,7 +1,7 @@
 <div class="wrapper">
         <nav class="navbar navbar-expand-md navbar-light bg-light py-1">
             <div class="container-fluid">
-                <button class="btn btn-default" id="btn-slider toggle" type="button">
+            <button class="btn btn-default" id="btn-slider" type="button">
                     <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
                 </button>
                 <a class="navbar-brand me-auto text-danger" href="#">Dash<span class="text-warning">Board</span></a>
