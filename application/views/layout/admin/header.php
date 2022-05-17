@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="<?= base_url('') ?>/assets/db/assets/app/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('') ?>/assets/db/assets/icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url('') ?>/assets/admin/db/dist/css/index.css">
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-color:black">
+<body style="">
 
     <div class="wrapper">

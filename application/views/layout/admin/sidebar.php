@@ -1,4 +1,4 @@
-<div class="slider" id="sliders">
+<div class="slider" id="sliders" style="background:#ff9500;">
     <div class="slider-head">
         
         <div class="d-block pt-4 pb-3 px-3">
